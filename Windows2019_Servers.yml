@@ -1,0 +1,20 @@
+# windows_servers.yml
+all:
+  hosts:
+    10.128.235.111:
+    10.128.235.112:
+    # ... list all 100 IP addresses here
+  vars:
+    ansible_connection: winrm
+    ansible_port: 5986
+    ansible_winrm_transport: ntlm
+    ansible_winrm_server_cert_validation: ignore
+  groups:
+    windows_prod:
+      hosts:
+        10.128.235.111:
+        # ... assign production hosts
+    windows_dev:
+      hosts:
+        10.128.235.112:
+        # ... assign development hosts
